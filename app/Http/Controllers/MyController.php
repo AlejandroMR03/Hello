@@ -9,4 +9,8 @@ class MyController extends Controller
     public function multiply($a, $b){
         return 'La multiplicación es: ' . $a * $b;
     }
+public function Alejandro(){
+   return "hola, soy Alejandro";
 }
+}
+
