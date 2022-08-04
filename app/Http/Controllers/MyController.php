@@ -10,7 +10,7 @@ class MyController extends Controller
         return 'La multiplicación es: ' . $a * $b;
     }
 public function Alejandro(){
-   return "hola, soy Alejandro";
+   return "Holaaaaaaaaaaaaaaaaaaaaaaaa";
 }
 }
 
