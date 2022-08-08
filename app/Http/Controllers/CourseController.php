@@ -38,8 +38,19 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+
+        //implementamos validaciones
+        $validacionDatos = $request -> validate(['nombre' => 'requerid | max:10', 'avatar' => 'requerid | image']);
+
+
+
+
+
+
+
+
         //Se devuelve la petición hecha al servidor
-        // return $request->all();
+         return $request->all();
         $grade = new Course();//Crear una instancia de la clase Curso
         $grade->name = $request->input('name');
         $grade->description = $request->input('description');
@@ -49,9 +60,9 @@ class CourseController extends Controller
         }
         $grade->save();//Comando para registrar la info en la bd
         return 'El curso se ha guardado exitosamente';
-        // return $grade->description;
-        // return $grade;
-        // return $request->input('name');
+         return $grade->description;
+         return $grade;
+         return $request->input('name');
     }
 
     /**
@@ -62,8 +73,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        // return view('courses.about_us');
-        return view('courses.show');
+        $grade= course::find($id);
+        return view('courses.show', compact('grade'));
     }
 
     public function showAbout($id)
@@ -80,6 +91,9 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
+
+        // return 'el id del curso que desea actualizar es ...';
+        // return 'la informacion que usted quiere actualizar, se veri asi en formato array';
         return view('courses.edit');
     }
 
@@ -103,6 +117,16 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $grade = course::find($id);
+
+        $urlImagenBD = $grade -> imagen;
+        //return $urlImagenBD;
+        $nameImagen = str_replace('public/','\storage\\',$urlImagenBD);
+        //return $nameImagen;
+        $rutacompleta = public_path().$nameImagen;
+        //return $rutacompleta;
+        unlink($rutacompleta);
+        $grade -> delete();
+        return 'eliminado';
     }
 }

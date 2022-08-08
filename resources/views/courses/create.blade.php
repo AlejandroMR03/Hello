@@ -13,6 +13,17 @@
                 <div class="form bg-light text-dark rounded">
                     <form action="/courses" method="POST" class="mx-3 px-3 my-5 pt-2 pb-5" enctype="multipart/form-data">
                     @csrf
+                    @if($errors -> any))
+                    @foreach($errors->all()as $alerta)
+                        <p>{{$alerta}}</p>
+                        @endforeach
+                        @endif
+
+
+
+
+
+
                         <h2 class="text-center mt-5">Crear Nuevo Curso</h2>
                         <br>
                         <div class="form-group">
@@ -36,6 +47,7 @@
                         </div>
                     </form>
                 </div>
+
             </div>
             <div class="col-sm">
 
