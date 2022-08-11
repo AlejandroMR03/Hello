@@ -7,7 +7,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-primary bg-primary fixed-top">
-            <a class="navbar-brand text-white" href="/courses">
+            <a class="navbar-brand text-white" href="/teacher">
                 <img src= {{ asset('logo_transparent.png') }} width="70" height="70" alt="">
             </a>
             <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +20,9 @@
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link text-white" href="/about_us">Sobre nosotros<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/creathe">Crear Teacher<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>

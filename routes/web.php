@@ -53,3 +53,8 @@ Route::resource('courses', CourseController::class);
 Route::get('/about_us', function () {
     return view('about_us');
 });
+
+route::resource('teacher', CourseController::class);
+Route::get('/creathe', function () {
+    return view('creathe');
+});
